@@ -1,5 +1,6 @@
 \documentclass[ncrna,article,submit,moreauthors,pdftex,10pt,a4paper]{mdpi} 
 \usepackage{color}
+\usepackage{subfigure}
 \newcommand{\TODO}[1]{\begingroup\color{red}#1\endgroup}
 %=================================================================
 \firstpage{1} 
@@ -58,29 +59,26 @@
 
 lncRNAs are of growing interest, furthermore novel lncRNA genes play key functional roles in important biological processes.
 Many lncRNA transcripts act as potential regulators in cellular functionalities. One of the well known functions of lncRNAs is 
-in gene silencing through interaction with chromatin [Cite Guttman, 2012]. lncRNA HULC[Cite Tay, 2014] has been detected to be over expressed in hepatocellular carcinoma. ANRIL 
+in gene silencing through interaction with chromatin \cite{guttmannat2012}. lncRNA HULC \cite{tay2014}[Cite Tay, 2014] has been detected to be over expressed in hepatocellular carcinoma. ANRIL 
 In recent years increasing number of researchers have focused on the annotation landscape of the lncRNAs.
 
-The Ensembl project [Cite Hubbard, 2001] aims to assemble biological data and present it to researchers. The human genome annotation data contains known genes
+The Ensembl project \cite{flicek2014}[Cite Hubbard, 2001] aims to assemble biological data and present it to researchers. The human genome annotation data contains known genes
 and also predicted novel genes. Each dataset contains transcriptomic information with genes, transcripts and number of exons for every transcript.
 
-GENCODE[Cite Harrow, 2012] is an annotation dataset which provides information about protein coding loci as well as long noncoding gene loci in the human genome. 
+GENCODE\cite{harrow2012}[Cite Harrow, 2012] is an annotation dataset which provides information about protein coding loci as well as long noncoding gene loci in the human genome. 
 It presents a combination of manual and automated annotation techniques which endeavours to list gene features from HAVANA and Ensembl datasets.
 It categorises the data through various attributes such as the gene locus, the number of transcripts, the number of exons per transcript, 
 the biotypes of the lncRNAs.
 
-A research carried out by Cabili et al[Cite Cabili, 2011] catalogues long intergenic noncoding RNAs(lincRNAs) with reads across 24 tissues. More than 30 characteristic features 
+A research carried out by Cabili et al \cite{cabili2011}[Cite Cabili, 2011] catalogues long intergenic noncoding RNAs(lincRNAs) with reads across 24 tissues. More than 30 characteristic features 
 are chosen from high throughput RNA Seq data as well as available annotation datasets to functionally classify the lincRNA genes.
 
-The latest version of the NONCODE database [Cite Zhao, 2015] contains annotation data of noncoding RNAs of 16 species. This database provides conservation 
+The latest version of the NONCODE database \cite{zhao2016}[Cite Zhao, 2015] contains annotation data of noncoding RNAs of 16 species. This database provides conservation 
 information of the lncRNAs, along with how the lncRNAs are related to various diseases.\\
 
 However, despite much focus on the proper annotation of the lncRNA genes, a few questions about the splice sites remain unanswered. lncRNAs, unlike mRNAs,
 do not undergo translation, but they are spliced and can possess multiple isoforms. In this paper, we attempt to illustrate the presence of 
 splice sites which are not hitherto revealed. 
-
-
-
 
 \section{Results}
 
@@ -89,26 +87,21 @@ in any gene loci.
 It is evident from the results there are a few novel exons present in the gene model reported by the GENCODE authors. As can be observed in
 Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model.
 \begin{figure}[h]
- \subfigure[Fig. 5]{\label{F05}\includegraphics[width=\linewidth]{/homes/biertruck/rituparno/Documents/Raw/fig1.png}}
- \subfigure[Fig. 6]{\label{F06}\includegraphics[width=\linewidth, height=8cm]{/homes/biertruck/rituparno/Documents/Raw/fig2.png}}
+ \subfigure[Fig. 5]{\label{F05}\includegraphics[width=\linewidth]{fig1}}
+ \subfigure[Fig. 6]{\label{F06}\includegraphics[width=\linewidth, height=8cm]{fig2}}
 \end{figure}
 
 %edit these plots. replot, manipulate in Inkscape.
 \begin{figure}[ht]
  \centering 
  \subfigure[]
- {\includegraphics[width=\linewidth]{/homes/biertruck/rituparno/Documents/Raw/Gencode_v24.png}}
+ {\includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}}
  \label{F07}
- \subfigure[These two plots show the frequency of occurence of exons and introns against transcripts in GENCODE versions 7 and 24]
- {\includegraphics[width=\linewidth]{/homes/biertruck/rituparno/Documents/Raw/Gencode_v7.pdf}}
+ \subfigure[These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
+ {\includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}}
  \label{F08}
 \end{figure}
 
-%\bibliography{abbr_long,references}
-\section{Discussion}
-
-
-\section{Conclusions}
 
 \section{Materials and Methods}
 
@@ -199,15 +192,15 @@ The authors reported 9640 lncRNA genes with 15, 512 transcripts and the mean of 
 Whereas using the same set of genes as can be found in the v7 dataset, 9580 genes with 14984 transcripts were identified in this analysis, although 
 the mean of exons per lncRNA transcript was identically computed to be 2.
 \begin{figure}[hl]
-% \subfigure[Com]\includegraphics[width=3cm, height=4cm]{/homes/biertruck/rituparno/Documents/Raw/comarison_plot_2.pdf}
+% \subfigure[Com]\includegraphics[width=3cm, height=4cm]{comarison_plot_2.pdf}
  \subfigure[Plot to compare the distribution of introns in lncRNA genes in our dataset against GENCODE v19]
- {\label{F01}\includegraphics[width=\textwidth, height=12cm]{/homes/biertruck/rituparno/Documents/Raw/comparison_plot_2.pdf}}
+ {\label{F01}\includegraphics[width=\textwidth, height=12cm]{comparison_plot_2.pdf}}
 \end{figure}
-\begin{figure}[hl]
- \centering
- \subfigure[This boxplot shows that the number of introns in our dataset is more than that found in GENCODE v19, although the mean remains similar]
- {\label{F02}\includegraphics[width=0.8\linewidth]{/homes/biertruck/rituparno/Documents/Raw/boxplot_both_1.pdf}}
-\end{figure}
+%\begin{figure}[hl]
+ %\centering
+ %\subfigure[This boxplot shows that the number of introns in our dataset is more than that found in GENCODE v19, although the mean remains similar]
+ %{\label{F02}\includegraphics[width=0.8\linewidth]{boxplot_both_1.pdf}}
+%\end{figure}
 
 The current analysis was conducted primarily based on GENCODE datasets from versions 7 through 24. 
 The datasets are provided in the standard GTF format. Every dataset classifies a gene with a variety of characteristics, including
@@ -216,11 +209,12 @@ gene locus, thus allowing exons to be shared among the transcripts.
 Using custom scripts the number of unique exons present in every gene was determined, which also permitted the calculation
 of the number of unique introns per gene. Moreover, the number of transcripts for every biotype was also documented.
 Furthermore, the mean and median of exons and introns for each dataset was also computed.
-\begin{figure}[hl]
+\begin{figure}[h]
+\centering
  \subfigure[For the lncRNA gene ENSG00000267939 GENCODE v19 reported one intron. Our analysis resulted in the presence of 6 introns with two potential exons]
- {\label{F03}\includegraphics[width=\linewidth]{/homes/biertruck/rituparno/Documents/Raw/267939.png}}
+ {\label{F03}\includegraphics[width=\linewidth]{267939}}
  \subfigure[GENCODE reported two introns for the gene ENSG00000263470 but we are reporting 9, including one false positive]
- {\label{F04}\includegraphics[width=\linewidth]{/homes/biertruck/rituparno/Documents/Raw/example.png}}
+ {\label{F04}\includegraphics[width=\linewidth]{example.png}}
 \end{figure}
   
 In order to analyse the sequence structure in more details on the UCSC Genome Browser, a batch of genes from the sample dataset 
@@ -235,20 +229,22 @@ However, in this study 9 unique introns in the gene with a false positive were d
 which was consolidated by the EST and TCONS data.
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
 \supplementary{
-The following are available online at www.mdpi.com/link, Figure S1: title, Table S1: title, Video S1: title.}
+The following are available online at www.mdpi.com/link, Figure S1: title, Table
+ S1: title, Video S1: title.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\acknowledgments{\TODO{Ritu DAAD grant}}}
+\acknowledgments{This work was supported in part by the Deutsche
+  For\-schungs\-ge\-mein\-schaft grant no. \TODO{DAAD Ritu, Funding Gero}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{PFS designed the study, RS and GD analyzed the
-  data. All authors contributed to the interpreation of the data and the
+authorcontributions{PFS designed the study, RS and GD analyzed the data,
+  all authors contributed to the interpretation of the results and the
   writing of the manuscript.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,12 +256,12 @@ The following are available online at www.mdpi.com/link, Figure S1: title, Table
 
 \noindent 
 \begin{tabular}{@{}ll}
-snoRNA & small nucleolar RNA\\
+lncRNA & long non-coding RNA\\
 rRNA   & ribosomal RNA
 \end{tabular}}
 
 \bibliographystyle{mdpi}
-\bibliography{ritu01}
+\bibliography{references}
 
 \end{document}
 
