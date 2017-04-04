@@ -59,21 +59,21 @@
 
 lncRNAs are of growing interest, furthermore novel lncRNA genes play key functional roles in important biological processes.
 Many lncRNA transcripts act as potential regulators in cellular functionalities. One of the well known functions of lncRNAs is 
-in gene silencing through interaction with chromatin \cite{guttmannat2012}. lncRNA HULC \cite{tay2014}[Cite Tay, 2014] has been detected to be over expressed in hepatocellular carcinoma. ANRIL 
+in gene silencing through interaction with chromatin \cite{guttmannat2012}. lncRNA HULC \cite{tay2014} has been detected to be over expressed in hepatocellular carcinoma. ANRIL 
 In recent years increasing number of researchers have focused on the annotation landscape of the lncRNAs.
 
-The Ensembl project \cite{flicek2014}[Cite Hubbard, 2001] aims to assemble biological data and present it to researchers. The human genome annotation data contains known genes
+The Ensembl project \cite{flicek2014} aims to assemble biological data and present it to researchers. The human genome annotation data contains known genes
 and also predicted novel genes. Each dataset contains transcriptomic information with genes, transcripts and number of exons for every transcript.
 
-GENCODE\cite{harrow2012}[Cite Harrow, 2012] is an annotation dataset which provides information about protein coding loci as well as long noncoding gene loci in the human genome. 
+GENCODE\cite{harrow2012} is an annotation dataset which provides information about protein coding loci as well as long noncoding gene loci in the human genome. 
 It presents a combination of manual and automated annotation techniques which endeavours to list gene features from HAVANA and Ensembl datasets.
 It categorises the data through various attributes such as the gene locus, the number of transcripts, the number of exons per transcript, 
 the biotypes of the lncRNAs.
 
-A research carried out by Cabili et al \cite{cabili2011}[Cite Cabili, 2011] catalogues long intergenic noncoding RNAs(lincRNAs) with reads across 24 tissues. More than 30 characteristic features 
+A research carried out by Cabili et al \cite{cabili2011} catalogues long intergenic noncoding RNAs(lincRNAs) with reads across 24 tissues. More than 30 characteristic features 
 are chosen from high throughput RNA Seq data as well as available annotation datasets to functionally classify the lincRNA genes.
 
-The latest version of the NONCODE database \cite{zhao2016}[Cite Zhao, 2015] contains annotation data of noncoding RNAs of 16 species. This database provides conservation 
+The latest version of the NONCODE database \cite{zhao2016} contains annotation data of noncoding RNAs of 16 species. This database provides conservation 
 information of the lncRNAs, along with how the lncRNAs are related to various diseases.\\
 
 However, despite much focus on the proper annotation of the lncRNA genes, a few questions about the splice sites remain unanswered. lncRNAs, unlike mRNAs,
@@ -85,22 +85,23 @@ splice sites which are not hitherto revealed.
 In this project, we sought to investigate the annotation landscape of lncRNAs and identify any unrevealed splice sites present
 in any gene loci.
 It is evident from the results there are a few novel exons present in the gene model reported by the GENCODE authors. As can be observed in
-Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model.
-\begin{figure}[h]
- \subfigure[Fig. 5]{\label{F05}\includegraphics[width=\linewidth]{fig1}}
- \subfigure[Fig. 6]{\label{F06}\includegraphics[width=\linewidth, height=8cm]{fig2}}
-\end{figure}
+Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model. \TODO{Which is correct?}
 
-%edit these plots. replot, manipulate in Inkscape.
-\begin{figure}[ht]
- \centering 
- \subfigure[]
- {\includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}}
- \label{F07}
- \subfigure[These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
- {\includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}}
- \label{F08}
-\end{figure}
+%\begin{figure}[h]
+% \subfigure[Fig. 5]{\label{F05}\includegraphics[width=\linewidth]{fig1}}
+ %\subfigure[Fig. 6]{\label{F06}\includegraphics[width=\linewidth, height=8cm]{fig2}}
+%\end{figure}
+
+
+%\begin{figure}[ht]
+ %\centering 
+ %\subfigure[]
+ %{\includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}}
+ %\label{F07}
+ %\subfigure[These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
+ %{\includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}}
+ %\label{F08}
+%\end{figure}
 
 
 \section{Materials and Methods}
@@ -123,29 +124,6 @@ It is known that, an individual gene can contain multiple transcripts, resulting
   On mapping them against v7 and v24, we found that close to 60\% of the genes
  were calculated in v7 and around 95\% in v24(Table 2). The means of exons and introns are significantly lower than in GENCODE. 
 
-% latex table generated in R 3.3.1 by xtable 1.7-4 package
-% \begin{table}[ht]
-% \centering
-% {\tiny
-% \begin{tabular}{p{2cm}|p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}}
-%   \hline
-% X & Genes & Transcripts & Exons & Mean.of.Exons & Median.of.Exons & Introns & Mean.of.Introns & Median.of.Introns \\ 
-%   \hline
-% Ensembl 83 & 9597 & 14038 & 42819 & 3.05 &   3 & 28781 & 2.05 &   2 \\ 
-%   Ensembl 54 & 15710 & 26799 & 67583 & 2.52 &   3 & 51877 & 1.94 &   2 \\ 
-%   Cabili 2011 & 8263 & 14353 & 33045 & 2.30 &   2 & 18607 & 1.30 &   1 \\ 
-%   NONCODE 2016 & 160376 & 233696 & 536111 & 2.29 &   2 & 305771 & 1.31 &   1 \\ 
-%   GENCODE v7 & 9580 & 14984 & 42060 & 2.81 &   3 & 28998 & 1.94 &   2 \\ 
-%   GENCODE v24 & 15941 & 28031 & 68457 & 2.44 &   2 & 45016 & 1.61 &   1 \\ 
-%    \hline
-% \end{tabular}
-% }
-% \caption{All Consortia} 
-% \label{tab:01}
-% \end{table}
-
-
-% Tue Aug 16 20:01:50 2016
 \begin{table}[ht]
 \caption{All Consortia} 
 \centering
@@ -191,11 +169,10 @@ The GENCODE v7 dataset categorises the lncRNA transcripts as antisense, lincRNA,
 The authors reported 9640 lncRNA genes with 15, 512 transcripts and the mean of exons per lncRNA transcript is 2.
 Whereas using the same set of genes as can be found in the v7 dataset, 9580 genes with 14984 transcripts were identified in this analysis, although 
 the mean of exons per lncRNA transcript was identically computed to be 2.
-\begin{figure}[h]
-% \subfigure[Com]\includegraphics[width=3cm, height=4cm]{comarison_plot_2.pdf}
- \subfigure[Plot to compare the distribution of introns in lncRNA genes in our dataset against GENCODE v19]
- {\label{F01}\includegraphics[width=\textwidth, height=12cm]{comparison_plot_2.pdf}}
-\end{figure}
+%\begin{figure}[h]
+ %\subfigure[Plot to compare the distribution of introns in lncRNA genes in our dataset against GENCODE v19]
+ %{\label{F01}\includegraphics[width=\textwidth, height=12cm]{comparison_plot_2.pdf}}
+%\end{figure}
 %\begin{figure}[hl]
  %\centering
  %\subfigure[This boxplot shows that the number of introns in our dataset is more than that found in GENCODE v19, although the mean remains similar]
@@ -209,19 +186,26 @@ gene locus, thus allowing exons to be shared among the transcripts.
 Using custom scripts the number of unique exons present in every gene was determined, which also permitted the calculation
 of the number of unique introns per gene. Moreover, the number of transcripts for every biotype was also documented.
 Furthermore, the mean and median of exons and introns for each dataset was also computed.
-\begin{figure}[h]
-\centering
- \subfigure[For the lncRNA gene ENSG00000267939 GENCODE v19 reported one intron. Our analysis resulted in the presence of 6 introns with two potential exons]
- {\label{F03}\includegraphics[width=\linewidth]{267939}}
- \subfigure[GENCODE reported two introns for the gene ENSG00000263470 but we are reporting 9, including one false positive]
- {\label{F04}\includegraphics[width=\linewidth]{example.png}}
-\end{figure}
-  
+
 In order to analyse the sequence structure in more details on the UCSC Genome Browser, a batch of genes from the sample dataset 
 were carefully identified and selected whose intron content was significanty greater than reported in GENCODE v19. A minimum read support of 10
 was further applied to optimise the list.
 We present two examples here. 
-The lncRNA gene ENSG00000267939 has one intron as reported by GENCODE; on the contrary, the same gene was found to have 
+
+\begin{figure}[H]
+\centering
+ \includegraphics[width=\linewidth]{267939}
+ \caption{For the lncRNA gene ENSG00000267939 GENCODE v19 reported one intron. Our analysis resulted in the presence of 6 introns with two potential exons}
+ \label{F03}
+\end{figure}
+\begin{figure}
+ \includegraphics[width=\linewidth]{example.pdf}
+ \caption{GENCODE reported two introns for the gene ENSG00000263470 but we are reporting 9, including one false positive}
+ \label{F04}
+\end{figure}
+  
+
+\TODO{Please recheck this sentence} The lncRNA gene ENSG00000267939 has one intron as reported by GENCODE; on the contrary, the same gene was found to have 
 6 introns including the one reported. (or 5 novel introns?) There were two potential(novel?) exons. Fig \ref{F03} shows the possibility of 
 existence of the exons through the EST strands. Fig \ref{F04} shows the gene ENSG00000263470 which has 3 unique exons and 2 unique introns 
 as reported by GENCODE. 
@@ -245,7 +229,7 @@ The following are available online at www.mdpi.com/link, Figure S1: title, Table
   Deutscher Akademischer Austauschdienst (DAAD).
   \TODO{Funding Gero}}
 
-authorcontributions{PFS designed the study, RS and GD analyzed the data,
+\authorcontributions{PFS designed the study, RS and GD analyzed the data,
   all authors contributed to the interpretation of the results and the
   writing of the manuscript.}
 
@@ -266,4 +250,3 @@ rRNA   & ribosomal RNA
 \bibliography{references}
 
 \end{document}
-
