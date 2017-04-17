@@ -144,16 +144,28 @@ of well-defined but rare isoforms so far have eluded annotation.
   \label{fig:compare}
 \end{figure}
 
+In Fig.~\ref{fig:examples} we show two examples that appear substantially
+more complicated in out data in the GENCODE annotation. No functional
+annotation is available at present for either locus. As the figure shows,
+at least some of the additional exons also appear in EST data tracks
+provided by the UCSC genome browser. 
 
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=\textwidth]{267939.pdf}\\[1em]
+\includegraphics[width=\textwidth]{example.pdf}
+\end{center}
+\caption{Two examples with previously unannotated splice junctions and
+  introns.  (top) In ENSG00000267939 we find 6 introns and two additional
+  exons compared to a single intron described in GENCODE v19.  (below) For
+  ENSG00000263470 we find 8 introns plus a likely false positive compared
+  to 2 introns in GENCODE.}
+\label{fig:examples} 
+\end{figure}
+  
+\TODO{more quantitative summary of results!} 
 
-
-
-
-It is evident from the results there are a few novel exons present in the gene model reported by the GENCODE authors. As can be observed in
-Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model.
-
-
-%edit these plots. replot, manipulate in Inkscape.
+\section{Concluding Remarks} 
 
 
 \section{Materials and Methods}
@@ -261,25 +273,14 @@ the exact locations of genes, their transcripts, and the transcripts contain. As
 gene locus, thus allowing exons to be shared among the transcripts.
 Using custom scripts the number of unique exons present in every gene was determined, which also permitted the calculation
 of the number of unique introns per gene. Moreover, the number of transcripts for every biotype was also documented.
-Furthermore, the mean and median of exons and introns for each dataset was also computed.
-\begin{figure}[h]
-\centering
- \subfigure[For the lncRNA gene ENSG00000267939 GENCODE v19 reported one intron. Our analysis resulted in the presence of 6 introns with two potential exons]
- {\label{F03}\includegraphics[width=\linewidth]{267939}}
- \subfigure[GENCODE reported two introns for the gene ENSG00000263470 but we are reporting 9, including one false positive]
- {\label{F04}\includegraphics[width=\linewidth]{example.png}}
-\end{figure}
-  
+Furthermore, the mean and median of exons and introns for each dataset was
+also computed.
+
+
 In order to analyse the sequence structure in more details on the UCSC Genome Browser, a batch of genes from the sample dataset 
 were carefully identified and selected whose intron content was significanty greater than reported in GENCODE v19. A minimum read support of 10
 was further applied to optimise the list.
-We present two examples here. 
-The lncRNA gene ENSG00000267939 has one intron as reported by GENCODE; on the contrary, the same gene was found to have 
-6 introns including the one reported. (or 5 novel introns?) There were two potential(novel?) exons. Fig \ref{F03} shows the possibility of 
-existence of the exons through the EST strands. Fig \ref{F04} shows the gene ENSG00000263470 which has 3 unique exons and 2 unique introns 
-as reported by GENCODE. 
-However, in this study 9 unique introns in the gene with a false positive were discovered. There were two novel exons in the gene model 
-which was consolidated by the EST and TCONS data.
+
 
 
 
