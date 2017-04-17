@@ -62,63 +62,98 @@ transcriptome \cite{Clark:11a,ENCODE:12}. Although the set of lncRNAs that
 is well understood with respect to biological function and molecular
 mechanism is still limited, it is rapidly expanding. Genes such as ANRIL
 \cite{Li:16A,Aguilo:16}, HULC \cite{Yu:17}, MALAT1 \cite{Liu:17}, TUG1
-\cite{Li:16}, or Xist \cite{daRocha:17} may serve as
-examples. Wide-spread roles include, but are not limited to, interactions
-with chromatin to silence or activate chromatin
-\cite{guttmannat2012,Deng:16} and the regulation of splicing
-\cite{Luco:16}. Still the coverage and precision of the lncRNA annotation
-lack behind the accurate maps of protein-coding genes.
+\cite{Li:16}, or Xist \cite{daRocha:17} may serve as examples. Wide-spread
+roles include, but are not limited to, interactions with chromatin to
+silence or activate chromatin \cite{guttmannat2012,Deng:16} and the
+regulation of splicing \cite{Luco:16}. Still the coverage and precision of
+the lncRNA annotation lack behind the accurate maps of protein-coding
+genes.  The GENCODE project \cite{harrow2012} provides the most accurate
+transcript and gene annotation for the human genome. It is a combination of
+manual and automated annotation techniques which endeavours to list gene
+features from HAVANA and Ensembl datasets. Detailed surveys of expression
+patterns across many tissue and cell-types, see e.g.\
+\cite{cabili2011,MasPonte:17,Hon:17} provide evidence for intricate
+regulatory networks in which lncRNAs key players.
 
-The GENCODE project \cite{harrow2012} provides the most accurate transcript
-and gene annotation for the human genome. It is a combination of manual and
-automated annotation techniques which endeavours to list gene features from
-HAVANA and Ensembl datasets. 
+There is mounting evidence, however, that lncRNAs isoforms may differ
+drastically in their biological function \cite{Holdt:13a,Bozgeyik:16}. Due
+to their usally low expression values, gene models for lncRNAs historically
+were often truncated, a situation that only has been improving recently.
+Notably, the recent lncRNA atlas by Hon \emph{et al.} \cite{Hon:17}
+specifically aimed at providing accurate 5' ends. The situation is still
+more difficult at the 3' side, since long, large unspliced 3' regions make
+it difficult determine complete transcript from Illumina data, see e.g.\
+\cite{Mercer:10,Engelhardt:15a}. Furthermore, lncRNAs such as ANRIL
+\cite{Holdt:13a}, exhibit complex patterns of alternative splicing. Even in
+extremely well-studied protein-coding loci, rare isoforms keep being
+discovered \cite{Hoffmann:14a}. It thus remains an unresolved question to
+what extent the current maps of lncRNAs are complete both in terms of the
+number of expressed loci/gene and in terms of the variability of their
+isoforms. 
 
-\TODO{mention the recent \texttt{LncATLAS} \cite{MasPonte:17}.}
-
-
-
- It categorises the data through various
-attributes such as the gene locus, the number of transcripts, the number of
-exons per transcript, the biotypes of the lncRNAs.
-
-A research carried out by Cabili et al \cite{cabili2011}[Cite Cabili, 2011] catalogues long intergenic noncoding RNAs(lincRNAs) with reads across 24 tissues. More than 30 characteristic features 
-are chosen from high throughput RNA Seq data as well as available annotation datasets to functionally classify the lincRNA genes.
-
-The latest version of the NONCODE database \cite{zhao2016}[Cite Zhao, 2015] contains annotation data of noncoding RNAs of 16 species. This database provides conservation 
-information of the lncRNAs, along with how the lncRNAs are related to various diseases.\\
-
-
-\TODO{papers that show that lncRNAs isoforms have functional importance:
-\cite{Holdt:13a}}
-
-
-
-However, despite much focus on the proper annotation of the lncRNA genes, a few questions about the splice sites remain unanswered. lncRNAs, unlike mRNAs,
-do not undergo translation, but they are spliced and can possess multiple isoforms. In this paper, we attempt to illustrate the presence of 
-splice sites which are not hitherto revealed. 
+One component towards answering this question is to ask to what extent the
+transcript portfolio of a particular cell type has been mapped completely.
+Conversely, one ask in this context to what extent reported transcript are
+noise. To address these issue we investigate here a very large set of
+transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
+of independently generated transcriptome data set we can study in detail if
+and the set of detectable splice junctions converges to a consensus.
 
 \section{Results}
 
-In this project, we sought to investigate the annotation landscape of lncRNAs and identify any unrevealed splice sites present
-in any gene loci.
-It is evident from the results there are a few novel exons present in the gene model reported by the GENCODE authors. As can be observed in
-Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model.
-\begin{figure}[h]
- \subfigure[Fig. 5]{\label{F05}\includegraphics[width=\linewidth]{fig1}}
- \subfigure[Fig. 6]{\label{F06}\includegraphics[width=\linewidth, height=8cm]{fig2}}
+Fig.~\ref{fig:saturation} summarize the effect of increasing coverage on
+the estimated average number of introns per gene locus. The data
+qualitative reproduce that observation of the ENCODE project that there is
+a large difference in the average number of splice junctions between
+protein-coding loci and ncRNAs. 
+
+\begin{figure}[t]
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{fig1}
+\end{center}
+\caption{Saturation curves for the number introns as a function of the 
+    number of independent transcriptome samples. \TODO{need vector graphics
+    and better axis labels.}}
+  \label{fig:saturation} 
 \end{figure}
 
-%edit these plots. replot, manipulate in Inkscape.
+\TODO{compare our numbers and ENCODE} 
+
+The curves also show that data saturate very slowly, requiring dozens or
+even a hundred samples to reach the plateau value. The data shows that the
+detected splice junctions are unlikely to be noise: nearly all junctions
+seen in at least one sample are reproduced also in 5, and most of them can
+be seen in 10 samples, attesting their physical reality. 
+
+In Fig.~\ref{fig:compare} we compare our data in more detail with the
+GENCODE 19 anotation. For the case of protein-coding loci we tend to miss
+some splice junctions at loci that are extremely lowly expressed in the
+lymphome transcriptomes. This is not surprising, as rare variants of course
+are easier to detect in transcriptomes where they are more highly
+expressed; after all, the GENCODE annotation is a composite of vastly
+diverse cell types and tissues. It is interesting to note, however, that we
+systematically observe more introns at moderate RPKM values even from the
+very narrowly defined cell types used here. This attests that large numbers
+of well-defined but rare isoforms so far have eluded annotation. 
+
 \begin{figure}[ht]
- \centering 
- \subfigure[]
- {\includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}}
- \label{F07}
- \subfigure[These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
- {\includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}}
- \label{F08}
+  \begin{center}
+    \includegraphics[width=\textwidth]{fig2}
+  \end{center}
+  \caption{ \TODO{write figure caption; need vector graphics version!} }
+  \label{fig:compare}
 \end{figure}
+
+
+
+
+
+
+It is evident from the results there are a few novel exons present in the gene model reported by the GENCODE authors. As can be observed in
+Fig \ref{F03} and Fig \ref{F04}, clearly there are novel exons present which were not included/detected in the gene model.
+
+
+%edit these plots. replot, manipulate in Inkscape.
 
 
 \section{Materials and Methods}
@@ -282,6 +317,17 @@ rRNA   & ribosomal RNA
 
 \bibliographystyle{mdpi}
 \bibliography{references}
+
+\clearpage 
+
+Supplement ? 
+
+ \includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}
+ These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
+ \includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}
+
+
+
 
 \end{document}
 
