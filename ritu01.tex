@@ -2,6 +2,7 @@
 \usepackage{color}
 \usepackage{subfigure}
 \newcommand{\TODO}[1]{\begingroup\color{red}#1\endgroup}
+\newcommand{\update}[1]{\begingroup\color{blue}#1\endgroup}
 %=================================================================
 \firstpage{1} 
 \makeatletter 
@@ -51,7 +52,7 @@
   We have used sophisticated alignment algorithms as well as custom
   analysis scripts to investigate the transcriptomic structure of lncRNAs.}
 
-\keyword{\TODO{keywords}}
+\keyword{lncRNA, splice junctions, GENCODE, lncRNA isoforms}
 
 \begin{document}
 
@@ -75,7 +76,7 @@ patterns across many tissue and cell-types, see e.g.\
 \cite{cabili2011,MasPonte:17,Hon:17} provide evidence for intricate
 regulatory networks in which lncRNAs key players.
 
-There is mounting evidence, however, that lncRNAs isoforms may differ
+There is mounting evidence, however, that lncRNA isoforms may differ
 drastically in their biological function \cite{Holdt:13a,Bozgeyik:16}. Due
 to their usally low expression values, gene models for lncRNAs historically
 were often truncated, a situation that only has been improving recently.
@@ -93,8 +94,8 @@ isoforms.
 
 One component towards answering this question is to ask to what extent the
 transcript portfolio of a particular cell type has been mapped completely.
-Conversely, one ask in this context to what extent reported transcript are
-noise. To address these issue we investigate here a very large set of
+Conversely, one asks in this context to what extent reported transcripts are
+noise. To address these issues we investigate here a very large set of
 transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
 of independently generated transcriptome data set we can study in detail if
 and the set of detectable splice junctions converges to a consensus.
@@ -103,21 +104,18 @@ and the set of detectable splice junctions converges to a consensus.
 
 Fig.~\ref{fig:saturation} summarize the effect of increasing coverage on
 the estimated average number of introns per gene locus. The data
-qualitative reproduce that observation of the ENCODE project that there is
+qualitatively reproduce that observation of the ENCODE project that there is
 a large difference in the average number of splice junctions between
 protein-coding loci and ncRNAs. 
 
 \begin{figure}[t]
 \begin{center}
-  \includegraphics[width=0.8\textwidth]{fig1}
+  \includegraphics[width=0.8\textwidth]{saturation}
 \end{center}
 \caption{Saturation curves for the number introns as a function of the 
-    number of independent transcriptome samples. \TODO{need vector graphics
-    and better axis labels.}}
+    number of independent transcriptome samples.}
   \label{fig:saturation} 
 \end{figure}
-
-\TODO{compare our numbers and ENCODE} 
 
 The curves also show that data saturate very slowly, requiring dozens or
 even a hundred samples to reach the plateau value. The data shows that the
@@ -125,8 +123,10 @@ detected splice junctions are unlikely to be noise: nearly all junctions
 seen in at least one sample are reproduced also in 5, and most of them can
 be seen in 10 samples, attesting their physical reality. 
 
+Reviewing a part of the ENCODE project, the presence of \textasciitilde{}18 introns in coding genes and \textasciitilde{}4 introns in long intergenic RNAs (lincRNAs) for a minimum read support of 5 was noted, whereas our data yields \textasciitilde{}11 introns per coding gene and \textasciitilde{}2 introns per lincRNA.
+
 In Fig.~\ref{fig:compare} we compare our data in more detail with the
-GENCODE 19 anotation. For the case of protein-coding loci we tend to miss
+GENCODE 19 annotation. For the case of protein-coding loci we tend to miss
 some splice junctions at loci that are extremely lowly expressed in the
 lymphome transcriptomes. This is not surprising, as rare variants of course
 are easier to detect in transcriptomes where they are more highly
@@ -138,9 +138,12 @@ of well-defined but rare isoforms so far have eluded annotation.
 
 \begin{figure}[ht]
   \begin{center}
-    \includegraphics[width=\textwidth]{fig2}
+    \includegraphics[width=\textwidth]{Fig1}
   \end{center}
-  \caption{ \TODO{write figure caption; need vector graphics version!} }
+  \caption{Scatterplots for different number of expression bins for lincRNAs and coding genes. 
+The diagonal is the X=Y line. Points above the line are those genes for that we calculate more introns compared to GENCODE v19.
+The right most column shows the fraction of genes being above, below and on the line  in relation to the expression.
+While for the coding genes a clear shift of these fractions over the different expression bins is visible, we observe for all expression bins more genes for that we predict more introns compared to the GENCODE v19 annotation.}  
   \label{fig:compare}
 \end{figure}
 
@@ -162,13 +165,19 @@ provided by the UCSC genome browser.
   to 2 introns in GENCODE.}
 \label{fig:examples} 
 \end{figure}
-  
-\TODO{more quantitative summary of results!} 
 
 \section{Concluding Remarks} 
-
+	
 
 \section{Materials and Methods}
+
+To understand the sequence structure of the human transcriptome comprehensively, we utilised various annotation datasets to explore the splice junctions already defined there and have a broad overview of the annotation of rare isoforms.
+In order to investigate the influence of the dataset size on the complexity of gene structures, we calculated the average number of introns for a series of different dataset sizes.
+Therefore, we used RNA-Seq data from 111 lymphoma samples  consisting of the different subtypes BL, FL and DLBCL that was published in the context of the ICGC MMML-Seq project \citep{Richter2012-un}.
+First the reads were mapped onto the human reference genome using the splice-aware mapping tool \textit{segemehl} version $0.1.7$ \citep{hoffmann2009,Hoffmann:14a} with split-read option  /texttt{-S} in addition to the default parameters. Then read support for all identified splice junctions, i.e. genomic intervals spanning exon-exon boundaries, were calculated. Since \textit{segemehl} identifies split-reads independently from the annotation, we consider all splice junctions located within genomic coordinates taken from GENCODE version 19 as potential introns. Finally, the average intron number per annotation item was computed using three different minimum read support filters of $1$, $5$ and $10$ respectively.
+This procedure was performed using the complete range of all dataset sizes from one sample to all 111 samples (cf. Fig. \ref{fig:saturation}).
+
+Based on the complete data set of all 111 samples we divided the genes according to their normalized mean expressions (RPKM) and counted for all expression bins the number of genes for that we computed more, less or an equal number of introns compared to the annotation using a minimum read support of 10 (Fig. \ref{fig:compare}). 
 
 To analyse the annotation landscape of lncRNAs, the whole transcriptome sequencing data from GENCODE, Ensembl, NONCODE 2016, 
 and the dataset from Cabili et. al. were used. GENCODE versions from 7 through 24 were used, as well as Ensembl 54 and 83.
@@ -178,45 +187,22 @@ the number of unique introns in each dataset.
 
 It is known that, an individual gene can contain multiple transcripts, resulting in the presence of common exons among the transcripts.
  Consequently, a pipeline was created to calculate the unique number of exons present in every gene for every version of each dataset. 
- Each dataset was carefully parsed and filtered to obtain calculate the number of exons present using a simple algorithm. Subsequently
- the presence of introns were also accounted for.
+ Each dataset was carefully parsed and filtered to obtain the number of exons present using a simple algorithm. Subsequently the presence of introns were also accounted for.
  
  \paragraph{}
+  Ensembl versions 54 and 83 have significant changes in the means of exons, although the medians remain the same(Table 1). The Cabili et. al. dataset and NONCODE document similar means of exons, despite the difference in numbers of genes sampled. Although the number of genes annotated in GENCODE v24 is much greater than in v7, the average presence of exons is less.
  The in house transcriptomic data from different types of cancer (viz. follicular lymphoma, B-cell lymphoma) yielded a lot of lncRNAs. 
- The genes available to us were taken from GENCODE v19.
- They were mapped against all the versions of the GENCODE datasets to obtain a count of the exonic and intronic content. 
+ For each of the 5,257 lincRNAs in our dataset, we calculated the transcript count, exonic content of every gene (as in Table 1), if found, in several versions of GENCODE. Although a similarity could be noticed, we computed a number of genes to have higher number of introns than in GENCODE.
+  The genes available to us correspond entirely to GENCODE v19.
   On mapping them against v7 and v24, we found that close to 60\% of the genes
- were calculated in v7 and around 95\% in v24(Table 2). The means of exons and introns are significantly lower than in GENCODE. 
+ were calculated in v7 and around 95\% in v24(Table 2).
 
-% latex table generated in R 3.3.1 by xtable 1.7-4 package
-% \begin{table}[ht]
-% \centering
-% {\tiny
-% \begin{tabular}{p{2cm}|p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}p{0.04\textwidth}}
-%   \hline
-% X & Genes & Transcripts & Exons & Mean.of.Exons & Median.of.Exons & Introns & Mean.of.Introns & Median.of.Introns \\ 
-%   \hline
-% Ensembl 83 & 9597 & 14038 & 42819 & 3.05 &   3 & 28781 & 2.05 &   2 \\ 
-%   Ensembl 54 & 15710 & 26799 & 67583 & 2.52 &   3 & 51877 & 1.94 &   2 \\ 
-%   Cabili 2011 & 8263 & 14353 & 33045 & 2.30 &   2 & 18607 & 1.30 &   1 \\ 
-%   NONCODE 2016 & 160376 & 233696 & 536111 & 2.29 &   2 & 305771 & 1.31 &   1 \\ 
-%   GENCODE v7 & 9580 & 14984 & 42060 & 2.81 &   3 & 28998 & 1.94 &   2 \\ 
-%   GENCODE v24 & 15941 & 28031 & 68457 & 2.44 &   2 & 45016 & 1.61 &   1 \\ 
-%    \hline
-% \end{tabular}
-% }
-% \caption{All Consortia} 
-% \label{tab:01}
-% \end{table}
-
-
-% Tue Aug 16 20:01:50 2016
 \begin{table}[ht]
-\caption{All Consortia} 
+\caption{lncRNA genes as catalogued by other consortia} 
 \centering
 {\tiny
-\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.07\textwidth}p{0.04\textwidth}p{0.09\textwidth}
-p{0.09\textwidth}p{0.04\textwidth}p{0.11\textwidth}p{0.09\textwidth}}
+\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.08\textwidth}p{0.04\textwidth}p{0.09\textwidth}
+p{0.09\textwidth}p{0.05\textwidth}p{0.1\textwidth}p{0.09\textwidth}}
   \hline
  & Genes & Transcripts & Exons & Mean of Exons & Median of Exons & Introns & Mean of Introns & Median of Introns \\ 
    \hline
@@ -235,20 +221,20 @@ Ensembl 83 & 9597 & 14038 & 42819 & 3.05 &   3 & 28781 & 2.05 &   2 \\
 \begin{table}[ht]
 \centering
 {\tiny
-\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.07\textwidth}p{0.04\textwidth}p{0.09\textwidth}
-p{0.09\textwidth}p{0.04\textwidth}p{0.11\textwidth}p{0.09\textwidth}}
+\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.08\textwidth}p{0.04\textwidth}p{0.09\textwidth}
+p{0.09\textwidth}p{0.05\textwidth}p{0.1\textwidth}p{0.09\textwidth}}
   \hline
  & Genes & Transcripts & Exons & Mean of Exons & Median of Exons & Introns & Mean of Introns & Median of Introns \\ 
    \hline
 v7 & 3296 & 4563 & 12584 & 2.76 & 3 & 8394 & 1.84 & 2\\
-  v19 & 5257 & 7487 & 18774 & 2.51 & 2 & 12010 & 1.6\\
+  v19 & 5257 & 7487 & 18774 & 2.51 & 2 & 12010 & 1.6 & 1\\
   v24 & 4961 & 7318 & 18685 & 2.55 & 3 & 12202 & 1.67 & 1\\ 
    \hline
 \end{tabular}
 }
-\caption{Our data against the number of genes that were found in GENCODE} 
+\caption{\update{edited}Transcriptomic data of lncRNA genes from our dataset as reported in GENCODE} 
 \end{table}% latex table generated in R 3.3.1 by xtable 1.7-4 package
-\newpage
+
 
 
 The GENCODE v7 dataset categorises the lncRNA transcripts as antisense, lincRNA, processed\_transcript and sense\_intronic biotypes. 
@@ -256,16 +242,7 @@ The GENCODE v7 dataset categorises the lncRNA transcripts as antisense, lincRNA,
 The authors reported 9640 lncRNA genes with 15, 512 transcripts and the mean of exons per lncRNA transcript is 2.
 Whereas using the same set of genes as can be found in the v7 dataset, 9580 genes with 14984 transcripts were identified in this analysis, although 
 the mean of exons per lncRNA transcript was identically computed to be 2.
-\begin{figure}[h]
-% \subfigure[Com]\includegraphics[width=3cm, height=4cm]{comarison_plot_2.pdf}
- \subfigure[Plot to compare the distribution of introns in lncRNA genes in our dataset against GENCODE v19]
- {\label{F01}\includegraphics[width=\textwidth, height=12cm]{comparison_plot_2.pdf}}
-\end{figure}
-%\begin{figure}[hl]
- %\centering
- %\subfigure[This boxplot shows that the number of introns in our dataset is more than that found in GENCODE v19, although the mean remains similar]
- %{\label{F02}\includegraphics[width=0.8\linewidth]{boxplot_both_1.pdf}}
-%\end{figure}
+
 
 The current analysis was conducted primarily based on GENCODE datasets from versions 7 through 24. 
 The datasets are provided in the standard GTF format. Every dataset classifies a gene with a variety of characteristics, including
@@ -321,14 +298,4 @@ rRNA   & ribosomal RNA
 
 \clearpage 
 
-Supplement ? 
-
- \includegraphics[width=\linewidth]{Gencode_v24_replot.pdf}
- These two plots show the frequency of occurence of exons and introns against our transcripts in GENCODE versions 7 and 24]
- \includegraphics[width=\linewidth]{Gencode_v7_replot.pdf}
-
-
-
-
 \end{document}
-
