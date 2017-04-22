@@ -101,6 +101,9 @@ and the set of detectable splice junctions converges to a consensus.
 
 \section{Results}
 
+ One of the primary aims was to calculate
+the number of unique introns in each dataset. 
+
 Fig.~\ref{fig:saturation} summarize the effect of increasing coverage on
 the estimated average number of introns per gene locus. The data
 qualitative reproduce that observation of the ENCODE project that there is
@@ -170,19 +173,32 @@ provided by the UCSC genome browser.
 
 \section{Materials and Methods}
 
-To analyse the annotation landscape of lncRNAs, the whole transcriptome sequencing data from GENCODE, Ensembl, NONCODE 2016, 
-and the dataset from Cabili et. al. were used. GENCODE versions from 7 through 24 were used, as well as Ensembl 54 and 83.
-The contents of the datasets are laid out in broadly three categories: the location of the lncRNA gene in the locus, 
-the transcripts, and the exon locations within the transcripts. One of the primary aims was to calculate
-the number of unique introns in each dataset. 
+Transcriptome data from the ICGC-MMML-Seq Consortium were used to
+investigate how intron and exon counts behave with increasing coverage.
+These comprise samples from \TODO{xxx} patients and contain \TODO{yyy}
+folicular lymphomas and \TODO{zzz} B-cell lymphomas.
+  \TODO{cite MMML-Seq
+  papers, describe number of samples, total coverages etc etc.}
 
-It is known that, an individual gene can contain multiple transcripts, resulting in the presence of common exons among the transcripts.
- Consequently, a pipeline was created to calculate the unique number of exons present in every gene for every version of each dataset. 
- Each dataset was carefully parsed and filtered to obtain calculate the number of exons present using a simple algorithm. Subsequently
- the presence of introns were also accounted for.
+We used the lncRNA annotation data provided by GENCODE versions 7 through
+24, Ensembl 54 and 83, the 2016 release of of NONCODE, and the data set of
+\cite{cabili2011}. 
+
+A custom pipeline was constructed to re-analyzed these data. 
+\TODO{how did we define a locus? Are these taken from the annotion, if so,
+how exactly?} 
+
+
+
+
  
- \paragraph{}
- The in house transcriptomic data from different types of cancer (viz. follicular lymphoma, B-cell lymphoma) yielded a lot of lncRNAs. 
+
+
+
+ 
+ 
+ 
+ 
  The genes available to us were taken from GENCODE v19.
  They were mapped against all the versions of the GENCODE datasets to obtain a count of the exonic and intronic content. 
   On mapping them against v7 and v24, we found that close to 60\% of the genes
