@@ -145,7 +145,7 @@ of well-defined but rare isoforms so far have eluded annotation.
   \end{center}
   \caption{Scatterplots for different number of expression bins for
     lincRNAs and coding genes.  The diagonal, where $x=y$ is marked by
-    aline. Points above the line are those genes for that we calculate more
+    a line. Points above the line are those genes for that we calculate more
     introns compared to GENCODE v.19.  The right most column shows the
     fraction of genes being above, below and on the line in relation to the
     expression.  While for the coding genes a clear shift of these
@@ -157,7 +157,7 @@ of well-defined but rare isoforms so far have eluded annotation.
 
 Comparing to existing annotation we find that lncRNAs exhibit
 systematically larger numbers of exons and introns compared to GENCODE. The
-discrepance is moderate, however, and pertains in particular to lncRNAs
+discrepancy is moderate, however, and pertains in particular to lncRNAs
 that already have a large number of exons annotated.  Around 41\% of genes are found to have more number of introns. 14\% of the genes have at least one intron more and 19\% have more than two introns.
 
 In Fig.~\ref{fig:examples} we show two examples that appear substantially
@@ -192,12 +192,8 @@ would result in a linear increase of the number of detected junctions as
 function of the size of the data set. If such a slope exists it is too
 small to be detectable from our data. 
 
-%The ENCODE consortium reported about -- introns per coding gene and about --
-%introns in lincRNAs. 
-%\TODO{How are the ENCODE counts made versus ours?}
-In the lymphome data set we observe about 19 introns per coding gene and about 4 introns per lincRNAs. 
-%include following only if we have comparison with ENCODE
-%This discrepancy appears to have two sources: First, and most importantly, the ENCODE data set refers to a very wide diversity of cell types, while here we deliberately analyzed a very specific set with a much greater depth. A second, confounding factor are the differences in loci that are included in the ENCODE lincRNA annotation compared to the GENCODE lncRNA track.
+We computed 1,441 genes in the lymphome data set which have at least one intron and we observe about 4 introns per lincRNA gene. The annotation of ENCODE genes is indexed in GENCODE. Therefore, we calculated an average of 3 introns from the annotation in GENCODE v.19. for the same set of genes. This discrepancy appears to exist because the ENCODE data set refers to a very wide diversity of cell types, while here we deliberately analyzed a very specific set with a much greater depth. 
+%A second, confounding factor are the differences in loci that are included in the ENCODE lincRNA annotation compared to the GENCODE lncRNA track.
 
 \TODO{salbungsvolle schlusssaetze} 
 We can see that the annotation of lncRNAs is a very difficult task. The annotation databases cannot completely encompass the entire transcriptome accurately. Alternative splicing plays a substantial role in it. The low availability of splicing machinery related data also contributes to the cause of low number of annotated rare isoforms. Advances in technology and further research would definitely broaden our vision in the future.
