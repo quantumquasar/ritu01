@@ -45,7 +45,7 @@
 
 \corres{Correspondence: studla@bioinf.uni-leipzig.de; Tel.: +49 341 97-16690}
 
-\abstract{Long noncoding RNAs(lncRNAs) are constantly being discovered and
+\abstract{\TODO{rewrite!} Long noncoding RNAs (lncRNAs) are constantly being discovered and
   we are in a nascent stage of understanding their sequence structure. We
   performed statistical analyses on exon and intron content of lncRNA
   annotation data from different publicly available annotation datasets.
@@ -78,24 +78,24 @@ regulatory networks in which lncRNAs are key players.
 
 There is mounting evidence, however, that lncRNA isoforms may differ
 drastically in their biological function \cite{Holdt:13a,Bozgeyik:16}. Due
-to their usually low expression values, gene models for lncRNAs historically
-were often truncated, a situation that only has been improving recently.
-Notably, the recent lncRNA atlas by Hon \emph{et al.} \cite{Hon:17}
-specifically aimed at providing accurate 5' ends. The situation is still
-more difficult at the 3' side, since long, large unspliced 3' regions make
-it difficult determine complete transcript from Illumina data, see e.g.\
-\cite{Mercer:10,Engelhardt:15a}. Furthermore, lncRNAs such as ANRIL
-\cite{Holdt:13a}, exhibit complex patterns of alternative splicing. Even in
-extremely well-studied protein-coding loci, rare isoforms keep being
-discovered \cite{Hoffmann:14a}. It thus remains an unresolved question to
-what extent the current maps of lncRNAs are complete both in terms of the
-number of expressed loci/gene and in terms of the variability of their
-isoforms. 
+to their usually low expression values, gene models for lncRNAs
+historically were often truncated, a situation that only has been improving
+recently.  Notably, the recent lncRNA atlas by Hon \emph{et al.}
+\cite{Hon:17} specifically aimed at providing accurate 5' ends. The
+situation is still more difficult at the 3' side, since long, large
+unspliced 3' regions make it difficult determine complete transcript from
+Illumina data, see e.g.\ \cite{Mercer:10,Engelhardt:15a}. Furthermore,
+lncRNAs such as ANRIL \cite{Holdt:13a}, exhibit complex patterns of
+alternative splicing. Even in extremely well-studied protein-coding loci,
+rare isoforms keep being discovered \cite{Hoffmann:14a}. It thus remains an
+unresolved question to what extent the current maps of lncRNAs are complete
+both in terms of the number of expressed loci/gene and in terms of the
+variability of their isoforms.
 
 One component towards answering this question is to ask to what extent the
 transcript portfolio of a particular cell type has been mapped completely.
-Conversely, one asks in this context to what extent reported transcripts are
-noise. To address these issues we investigate here a very large set of
+Conversely, one asks in this context to what extent reported transcripts
+are noise. To address these issues we investigate here a very large set of
 transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
 of independently generated transcriptome data set we can study in detail if
 and the set of detectable splice junctions converges to a consensus.
@@ -105,20 +105,33 @@ and the set of detectable splice junctions converges to a consensus.
 To better understand the distribution and structure of rare isoforms in the
 the human transcriptome we investigated systematically the influence of the
 dataset size on the complexity of inferred gene structures. We focussed on
-RNA-Seq data from 111 lymphoma samples consisting of the different subtypes BL, FL and DLBCL that was published in the context of the ICGC MMML-Seq project\cite{Richter:12a}. The RNA-Seq data comprised of a total of more than 10 billion mapped reads. Using GENCODE version 19 as reference, we obtained set of 5,257 lncRNAs that were detectably expressed in our lymphoma data.
+RNA-Seq data from 111 lymphoma samples consisting of the different subtypes
+BL, FL and DLBCL that was published in the context of the ICGC MMML-Seq
+project \cite{Richter:12a}. The RNA-Seq data comprised of a total of more
+than 10 billion mapped reads. Using GENCODE version 19 as reference, we
+obtained set of 5,257 lncRNAs that were detectably expressed in our
+lymphoma data.
 
 Fig.~\ref{fig:saturation} summarize the effect of increasing coverage on
-the estimated average number of introns per gene locus. The data
-qualitatively reproduce that observation of the ENCODE project that there is
-a large difference in the average number of splice junctions between
-protein-coding loci and ncRNAs. 
+the estimated average number of introns per gene locus. Here, only the
+subset of expressed lncRNAs with at least one annotated intron is used to
+reduce the chance of erroneously or ambigously mapped reads. The data
+qualitatively reproduce that observation of the ENCODE project that there
+is a large difference in the average number of splice junctions between
+protein-coding loci and ncRNAs \cite{Derrien:12}. Although restricted to a
+quite narrowly defined cancer type, the average number of introns in
+lncRNAs is larger by about one that the GENCODE data set, which uses a
+composite of a broad range of cell lines and tissues. This clearly is an
+effect of the exteme sequencing depth of combined lymphome data. 
 
 \begin{figure}[t]
 \begin{center}
   \includegraphics[width=0.8\textwidth]{saturation}
 \end{center}
 \caption{Saturation curves for the number introns as a function of the 
-    number of independent transcriptome samples.}
+  number of independent transcriptome samples. The lncRNAs data refer to 
+  annotated 1,441 genes in the lymphome data set with a least one intron. 
+  }
   \label{fig:saturation} 
 \end{figure}
 
@@ -128,43 +141,48 @@ detected splice junctions are unlikely to be noise: nearly all junctions
 seen in at least one sample are reproduced also in 5, and most of them can
 be seen in 10 samples, attesting their physical reality. 
 
-In Fig.~\ref{fig:compare} we compare the  data in more detail with the
-GENCODE v.19 annotation. For the case of protein-coding loci we tend to miss
-some splice junctions at loci that are extremely lowly expressed in the
-lymphome transcriptomes. This is not surprising, as rare variants of course
-are easier to detect in transcriptomes where they are more highly
+In Fig.~\ref{fig:compare} we compare the data in more detail with the
+GENCODE v.19 annotation. For the case of protein-coding loci we tend to
+miss some splice junctions at loci that are extremely lowly expressed in
+the lymphome transcriptomes. This is not surprising, as rare variants of
+course are easier to detect in transcriptomes where they are more highly
 expressed; after all, the GENCODE annotation is a composite of vastly
 diverse cell types and tissues. It is interesting to note, however, that we
 systematically observe more introns at moderate RPKM values even from the
 very narrowly defined cell types used here. This attests that large numbers
-of well-defined but rare isoforms so far have eluded annotation. 
+of well-defined but rare isoforms so far have eluded annotation.
 
 \begin{figure}[ht]
   \begin{center}
     \includegraphics[width=\textwidth]{Fig1}
   \end{center}
   \caption{Scatterplots for different number of expression bins for
-    lincRNAs and coding genes.  The diagonal, where $x=y$ is marked by
-    a line. Points above the line are those genes for that we calculate more
-    introns compared to GENCODE v.19.  The right most column shows the
-    fraction of genes being above, below and on the line in relation to the
-    expression.  While for the coding genes a clear shift of these
-    fractions over the different expression bins is visible, we observe for
-    all expression bins more genes for that we predict more introns
-    compared to the GENCODE v.19 annotation.}
+    lincRNAs and coding genes.  The diagonal, where $x=y$ is marked by a
+    line. Points above the line are those genes for that we calculate more
+    introns compared to GENCODE v.19.  The right-most column shows the
+    fraction of genes for which show more (red), the same (blue), or fewer
+    (green) distinct splice junctions in the lymphoma data compared to
+    GENCODE v.19.  For the coding genes there is clear dependence of these
+    fractions on the expression level: for highly expressed mRNAs, we
+    systematically predict more (rare) splice variants. For mRNAs that are
+    very lowly expressed in the lymphoma data set, GENCODE v.19 has more
+    complex gene models. In contrast, we systematically see more introns in
+    lncRNAs that annotated by GENCODE.}
   \label{fig:compare}
 \end{figure}
 
 Comparing to existing annotation we find that lncRNAs exhibit
 systematically larger numbers of exons and introns compared to GENCODE. The
 discrepancy is moderate, however, and pertains in particular to lncRNAs
-that already have a large number of exons annotated.  Around 41\% of genes are found to have more number of introns. 14\% of the genes have at least one intron more and 19\% have more than two introns.
+that already have a large number of exons annotated.  Around 41\% of genes
+are found to have more number of introns. 14\% of the genes have at least
+one intron more and 19\% have more than two introns.
 
 In Fig.~\ref{fig:examples} we show two examples that appear substantially
 more complicated in our data in the GENCODE annotation. No functional
 annotation is available at present for either locus. As the figure shows,
 at least some of the additional exons also appear in EST data tracks
-provided by the UCSC genome browser. 
+provided by the UCSC genome browser.
 
 \begin{figure}[t]
 \begin{center}
@@ -192,19 +210,18 @@ would result in a linear increase of the number of detected junctions as
 function of the size of the data set. If such a slope exists it is too
 small to be detectable from our data. 
 
-We computed 1,441 genes in the lymphome data set which have at least one intron and we observe about 4 introns per lincRNA gene. The annotation of ENCODE genes is indexed in GENCODE. Therefore, we calculated an average of 3 introns from the annotation in GENCODE v.19. for the same set of genes. This discrepancy appears to exist because the ENCODE data set refers to a very wide diversity of cell types, while here we deliberately analyzed a very specific set with a much greater depth. 
-%A second, confounding factor are the differences in loci that are included in the ENCODE lincRNA annotation compared to the GENCODE lncRNA track.
-
 \TODO{salbungsvolle schlusssaetze} 
 We can see that the annotation of lncRNAs is a very difficult task. The annotation databases cannot completely encompass the entire transcriptome accurately. Alternative splicing plays a substantial role in it. The low availability of splicing machinery related data also contributes to the cause of low number of annotated rare isoforms. Advances in technology and further research would definitely broaden our vision in the future.
 
 \section{Materials and Methods}
 
 The 111 RNA-seq lymphoma samples from the ICGC MMML-Seq project
-\cite{Richter:12a} were mapped onto the human reference genome
-hg19 using the splicing-aware mapping tool \textit{segemehl},
-version $0.1.7$ \cite{Hoffmann:09a,Hoffmann:14a} with split-read mapping
-(option \texttt{-S}) enabled in addition to the default parameters. The total number of reads were around 120 million per sample. The read length was 101 and around 90\% of the reads were mappable.
+\cite{Richter:12a} were mapped onto the human reference genome hg19 using
+the splicing-aware mapping tool \textit{segemehl}, version $0.1.7$
+\cite{Hoffmann:09a,Hoffmann:14a} with split-read mapping (option
+\texttt{-S}) enabled in addition to the default parameters. The total
+number of reads were around 120 million per sample. The read length was 101
+and around 90\% of the reads were mappable.
 
 Then read support for all identified splice junctions, i.e., genomic
 intervals spanning exon-exon boundaries, were calculated. Since
@@ -239,44 +256,45 @@ interest. Input datasets are provided in the standard GTF format and
 report, for each gene, its exact location as well as its set of constituent
 transcripts. Within a gene, transcripts typically overlap and share exons.
 We therefore first determined a collection of unique exons for each gene,
-which was subsequently used to determine the unique introns. Mean and median
-number of introns and exons per gene were computed from the number of
-unique exons and introns, resp., i.e., without considering how often they
-appear in distinct transcripts. 
+which was subsequently used to determine the unique introns. Mean and
+median number of introns and exons per gene were computed from the number
+of unique exons and introns, resp., i.e., without considering how often
+they appear in distinct transcripts.
 
 \begin{table}[ht]
-\caption{lncRNA genes as catalogued by other consortia} 
+  \caption{lncRNA genes catalogued by various annotation systems. The
+    average number of exons and introns per transcript is given in the
+    (avg.) column.} 
 \label{tab:consortia}
-\begin{center}\tiny
-\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.08\textwidth}p{0.04\textwidth}p{0.09\textwidth}
-p{0.09\textwidth}p{0.05\textwidth}p{0.1\textwidth}p{0.09\textwidth}}
+\begin{center}\small
+\begin{tabular}{|l|rr|rr|rr|}
   \hline
- & Genes & Transcripts & Exons & Mean of Exons & Median of Exons & Introns & Mean of Introns & Median of Introns \\ 
+  & Genes & Transcripts & Exons & (avg.) & 
+                        Introns & (avg.) \\ 
    \hline
-Ensembl 83 & 9597 & 14038 & 42819 & 3.05 &   3 & 28781 & 2.05 &   2 \\ 
-  Ensembl 54 & 15710 & 26799 & 67583 & 2.52 &   3 & 51877 & 1.94 &   2 \\ 
-  Cabili 2011 & 8263 & 14353 & 33045 & 2.30 &   2 & 18607 & 1.30 &   1 \\ 
-  NONCODE 2016 & 160376 & 233696 & 536111 & 2.29 &   2 & 305771 & 1.31 &   1 \\ 
-  GENCODE v7 & 9580 & 14984 & 42060 & 2.81 &   3 & 28998 & 1.94 &   2 \\ 
-  GENCODE v24 & 15941 & 28031 & 68457 & 2.44 &   2 & 45016 & 1.61 &   1 \\ 
+  Ensembl 83   &   9597 &  14038 &  42819 & 3.05 &  28781 & 2.05 \\ 
+  Ensembl 54   &  15710 &  26799 &  67583 & 2.52 &  51877 & 1.94 \\ 
+  Cabili 2011  &   8263 &  14353 &  33045 & 2.30 &  18607 & 1.30 \\ 
+  NONCODE 2016 & 160376 & 233696 & 536111 & 2.29 & 305771 & 1.31 \\ 
+  GENCODE v7   &   9580 &  14984 &  42060 & 2.81 &  28998 & 1.94 \\ 
+  GENCODE v24  &  15941 &  28031 &  68457 & 2.44 &  45016 & 1.61 \\ 
    \hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \begin{table}[ht]
-  \caption{LcnRNAs expressed in the lymphome dataset and present in different
-    versions of the GENCODE. See Supplementary file}
+  \caption{Overlap between lncRNAs expressed in the lymphoma dataset 
+    and different versions of the GENCODE annotation.} 
 \label{tab:gencode}
-\begin{center}\tiny
-\begin{tabular}[lrrrrrrrr]{p{0.11\textwidth}|p{0.04\textwidth}p{0.08\textwidth}p{0.04\textwidth}p{0.09\textwidth}
-p{0.09\textwidth}p{0.05\textwidth}p{0.1\textwidth}p{0.09\textwidth}}
+\begin{center}\small
+\begin{tabular}{|l|rr|rr|rr|}
   \hline
- & Genes & Transcripts & Exons & Mean of Exons & Median of Exons & Introns & Mean of Introns & Median of Introns \\ 
+  & Genes & Transcripts & Exons & (avg) & Introns & (avg) \\ 
    \hline
-v7 & 3296 & 4563 & 12584 & 2.76 & 3 & 8394 & 1.84 & 2\\
-  v19 & 5257 & 7487 & 18774 & 2.51 & 2 & 12010 & 1.6 & 1\\
-  v24 & 4961 & 7318 & 18685 & 2.55 & 3 & 12202 & 1.67 & 1\\ 
+  v7  & 3296 & 4563 & 12584 & 2.76 &  8394 & 1.84 \\
+  v19 & 5257 & 7487 & 18774 & 2.51 & 12010 & 1.60 \\
+  v24 & 4961 & 7318 & 18685 & 2.55 & 12202 & 1.67 \\ 
    \hline
 \end{tabular}
 \end{center}
@@ -299,11 +317,6 @@ genome browser \cite{Kent:02} to visualize additional introns.
 \vspace{6pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% optional
-\TODO{
-\supplementary{The following are available online at www.mdpi.com/link,
-  Figure S1: title, Table S1: title, Video S1: title.}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments{This work was supported in part by the Deutsche
@@ -320,18 +333,18 @@ genome browser \cite{Kent:02} to visualize additional introns.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
-\abbreviations{The following abbreviations are used in this manuscript:\\
-
-\noindent 
+\abbreviations{The following abbreviations are used in this manuscript:
+\par\noindent 
 \begin{tabular}{@{}ll}
 lncRNA & long non-coding RNA\\
-rRNA   & ribosomal RNA
+rRNA   & ribosomal RNA\\
+RPKM   & reads per kilobase per million mapped reads\\
+BL     & Burkitt lymphoma\\
+FL     & folicular lymphoma\\
+DLBCL  & diffuse large B cell lymphoma\\
 \end{tabular}}
 
 \bibliographystyle{mdpi}
 \bibliography{references}
-
-\clearpage 
-
 \end{document}
 
