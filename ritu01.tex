@@ -45,12 +45,28 @@
 
 \corres{Correspondence: studla@bioinf.uni-leipzig.de; Tel.: +49 341 97-16690}
 
-\abstract{\TODO{rewrite!} Long noncoding RNAs (lncRNAs) are constantly being discovered and
-  we are in a nascent stage of understanding their sequence structure. We
-  performed statistical analyses on exon and intron content of lncRNA
-  annotation data from different publicly available annotation datasets.
-  We have used sophisticated alignment algorithms as well as custom
-  analysis scripts to investigate the transcriptomic structure of lncRNAs.}
+\abstract{Long non-coding RNAs form an substantial component of the
+  transcriptome and are involved in a wide variety of regulatory
+  mechanisms. Compared to protein-coding genes they are often expressed at
+  low levels and or restricted to a narrow range of cell types or
+  developmental stages. As a consequence the diversity of their isoforms is
+  still far from being recorded and catalogued in its entirety, and the
+  debate is ongoing what fraction of non-coding RNAs truely conveys
+  biological function rather than being ``junk''.  Here we show, using a
+  collection of more than 100 transcriptomes from related B cell lymphoma,
+  that lncRNA loci produce a very defined set of splice variants. While
+  some of them are so rare that they become recognizable only in the
+  superposition of dozens or hundreds of transcriptome data sets and not
+  infrequently include introns or exons that have not been included in
+  available genome annotation data, there is still a very limited number of
+  processing products for any given locus. The combined depth of our
+  sequencing data is large enough to effectively exhaust the isoform
+  diversity: the overwhelming majority of splice junctions that are
+  observed at all are represented by multiple junction-spanning reads.  We
+  conclude that the human transcriptome produces virtually no background of
+  RNAs that are processed at effectively random positions but is, under
+  normal circumstances, confined to a well defined set of splice variants.
+}
 
 \keyword{lncRNA, splice junctions, GENCODE, lncRNA isoforms}
 
@@ -205,13 +221,19 @@ low abundance, they appear only when data from large scale experiments are
 pooled. As shown in Figure~\ref{fig:saturation} they nevertheless can be
 reproduced very accurately. There is very little noise in these data, as
 shown by the near perfect saturation of the average number of splice
-junctions per gene. Transcriptional noise, whether biological or technical
+junctions per gene. Transcriptional noise, whether biological or technical,
 would result in a linear increase of the number of detected junctions as
 function of the size of the data set. If such a slope exists it is too
-small to be detectable from our data. 
+small to be detectable from our data, which comprise more than $10^{10}$
+reads. We therefore have to conclude that the human transcriptome is
+confined to very well defined set of splice variants. As a consequence it
+is a meaningful, and in our view worth-while task to attempt the
+construction of an exhaustive atlas.
 
-\TODO{salbungsvolle schlusssaetze} 
-We can see that the annotation of lncRNAs is a very difficult task. The annotation databases cannot completely encompass the entire transcriptome accurately. Alternative splicing plays a substantial role in it. The low availability of splicing machinery related data also contributes to the cause of low number of annotated rare isoforms. Advances in technology and further research would definitely broaden our vision in the future.
+The well-definedness of isoforms by itself does not imply that all isoforms
+carry biological functions. If the vast majority of isoforms are indeed
+non-functional junk, however, an explanation is needed for the precision of
+the processing and its restriction of very few splice sites.
 
 \section{Materials and Methods}
 
