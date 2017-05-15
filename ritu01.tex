@@ -116,6 +116,17 @@ transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
 of independently generated transcriptome data set we can study in detail if
 and the set of detectable splice junctions converges to a consensus.
 
+\begin{figure}[t]
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{saturation}
+\end{center}
+\caption{Saturation curves for the number introns as a function of the 
+  number of independent transcriptome samples. The lncRNAs data refer to 
+  annotated 1,441 genes in the lymphome data set with a least one intron. 
+  }
+  \label{fig:saturation} 
+\end{figure}
+
 \section{Results}
 
 To better understand the distribution and structure of rare isoforms in the
@@ -140,17 +151,6 @@ lncRNAs is larger by about one that the GENCODE data set, which uses a
 composite of a broad range of cell lines and tissues. This clearly is an
 effect of the exteme sequencing depth of combined lymphome data. 
 
-\begin{figure}[t]
-\begin{center}
-  \includegraphics[width=0.8\textwidth]{saturation}
-\end{center}
-\caption{Saturation curves for the number introns as a function of the 
-  number of independent transcriptome samples. The lncRNAs data refer to 
-  annotated 1,441 genes in the lymphome data set with a least one intron. 
-  }
-  \label{fig:saturation} 
-\end{figure}
-
 The curves also show that data saturate very slowly, requiring dozens or
 even a hundred samples to reach the plateau value. The data shows that the
 detected splice junctions are unlikely to be noise: nearly all junctions
@@ -168,7 +168,7 @@ systematically observe more introns at moderate RPKM values even from the
 very narrowly defined cell types used here. This attests that large numbers
 of well-defined but rare isoforms so far have eluded annotation.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \begin{center}
     \includegraphics[width=\textwidth]{Fig1}
   \end{center}
@@ -259,30 +259,6 @@ gene's expression level in the lymphoma data set in Fig.\
 \ref{fig:compare}. We only considered genes with that were supported by at
 least 10 reads in our analysis.
 
-To analyse the annotation landscape of lncRNAs, we used the whole
-transcriptome sequencing data from GENCODE (versions 7 through 24)
-\cite{harrow2012}, Ensembl (release 54 and 83) \cite{flicek2014}, NONCODE
-(version of 2016) \cite{zhao2016}, and the dataset by Cabili \textit{et
-  al.}  \cite{cabili2011}. We included the categories ``antisense'',
-``lincRNA'', ``processed\_transcript'' and ``sense\_intronic biotypes'' as
-lncRNAs.  The annotation data were used to define the location of
-individual genes to count the total number of introns. In order to address
-changes in the annotated gene structures over time we used the GENCODE v.19
-genes as reference. The intersection of GENCODE v.19 with the loci that are
-supported by at least 10 reads in the lymphoma data set comprises 5,257
-lincRNAs.
-
-An inhouse pipeline was used to handle the mapped data, aggregate the
-multiple transcriptomes, and to compute the summary statistics of
-interest. Input datasets are provided in the standard GTF format and
-report, for each gene, its exact location as well as its set of constituent
-transcripts. Within a gene, transcripts typically overlap and share exons.
-We therefore first determined a collection of unique exons for each gene,
-which was subsequently used to determine the unique introns. Mean and
-median number of introns and exons per gene were computed from the number
-of unique exons and introns, resp., i.e., without considering how often
-they appear in distinct transcripts.
-
 \begin{table}[ht]
   \caption{lncRNA genes catalogued by various annotation systems. The
     average number of exons and introns per transcript is given in the
@@ -321,6 +297,30 @@ they appear in distinct transcripts.
 \end{tabular}
 \end{center}
 \end{table}
+
+To analyse the annotation landscape of lncRNAs, we used the whole
+transcriptome sequencing data from GENCODE (versions 7 through 24)
+\cite{harrow2012}, Ensembl (release 54 and 83) \cite{flicek2014}, NONCODE
+(version of 2016) \cite{zhao2016}, and the dataset by Cabili \textit{et
+  al.}  \cite{cabili2011}. We included the categories ``antisense'',
+``lincRNA'', ``processed\_transcript'' and ``sense\_intronic biotypes'' as
+lncRNAs.  The annotation data were used to define the location of
+individual genes to count the total number of introns. In order to address
+changes in the annotated gene structures over time we used the GENCODE v.19
+genes as reference. The intersection of GENCODE v.19 with the loci that are
+supported by at least 10 reads in the lymphoma data set comprises 5,257
+lincRNAs.
+
+An inhouse pipeline was used to handle the mapped data, aggregate the
+multiple transcriptomes, and to compute the summary statistics of
+interest. Input datasets are provided in the standard GTF format and
+report, for each gene, its exact location as well as its set of constituent
+transcripts. Within a gene, transcripts typically overlap and share exons.
+We therefore first determined a collection of unique exons for each gene,
+which was subsequently used to determine the unique introns. Mean and
+median number of introns and exons per gene were computed from the number
+of unique exons and introns, resp., i.e., without considering how often
+they appear in distinct transcripts.
 
 A comparison of the published annotation data showed substantial changes in
 the average number of exons per genes. Not surprisingly, the later ENSEMBL
