@@ -20,7 +20,7 @@
 \Title{Rare Splice Variants in Long Non-Coding RNAs}
 
 \Author{Rituparno Sen$^{1}$, Gero Doose$^{2}$, 
-   Peter F. Stadler$^{2-8}$*}
+   Peter F. Stadler$^{1-7}$*}
 
 % Authors, for metadata in PDF
 \AuthorNames{Rituparno Sen, Gero Doose, Peter F. Stadler}
@@ -45,12 +45,11 @@
 
 \corres{Correspondence: studla@bioinf.uni-leipzig.de; Tel.: +49 341 97-16690}
 
-\abstract{Long non-coding RNAs form an substantial component of the
+\abstract{Long non-coding RNAs form a substantial component of the
   transcriptome and are involved in a wide variety of regulatory
   mechanisms. Compared to protein-coding genes they are often expressed at
-  low levels and or restricted to a narrow range of cell types or
-  developmental stages. As a consequence the diversity of their isoforms is
-  still far from being recorded and catalogued in its entirety, and the
+  low levels and are restricted to a narrow range of cell types or
+  developmental stages. As a consequence, the diversity of their isoforms is still far from being recorded and catalogued in its entirety, and the
   debate is ongoing what fraction of non-coding RNAs truely conveys
   biological function rather than being ``junk''.  Here we show, using a
   collection of more than 100 transcriptomes from related B cell lymphoma,
@@ -79,9 +78,9 @@ transcriptome \cite{Clark:11a,ENCODE:12}. Although the set of lncRNAs that
 is well understood with respect to biological function and molecular
 mechanism is still limited, it is rapidly expanding. Genes such as ANRIL
 \cite{Li:16A,Aguilo:16}, HULC \cite{Yu:17}, MALAT1 \cite{Liu:17}, TUG1
-\cite{Li:16}, or Xist \cite{daRocha:17} may serve as examples. Wide-spread
+\cite{Li:16}, or Xist \cite{daRocha:17} may serve as examples. Widespread
 roles include, but are not limited to, interactions with chromatin to
-silence or activate chromatin \cite{guttmannat2012,Deng:16} and the
+silence or activate chromatin \cite{guttmannat2012,Deng:16}, and the
 regulation of splicing \cite{Luco:16}. Still the coverage and precision of
 the lncRNA annotation lack behind the accurate maps of protein-coding
 genes.  The GENCODE project \cite{harrow2012} provides the most accurate
@@ -89,7 +88,7 @@ transcript and gene annotation for the human genome. It is a combination of
 manual and automated annotation techniques which endeavours to list gene
 features from HAVANA and Ensembl datasets. Detailed surveys of expression
 patterns across many tissue and cell-types, see e.g.\
-\cite{cabili2011,MasPonte:17,Hon:17} provide evidence for intricate
+\cite{cabili2011,MasPonte:17,Hon:17}, provide evidence for intricate
 regulatory networks in which lncRNAs are key players.
 
 There is mounting evidence, however, that lncRNA isoforms may differ
@@ -102,7 +101,7 @@ situation is still more difficult at the 3' side, since long, large
 unspliced 3' regions make it difficult determine complete transcript from
 Illumina data, see e.g.\ \cite{Mercer:10,Engelhardt:15a}. Furthermore,
 lncRNAs such as ANRIL \cite{Holdt:13a}, exhibit complex patterns of
-alternative splicing. Even in extremely well-studied protein-coding loci,
+alternative splicing. Even in extremely well studied protein-coding loci,
 rare isoforms keep being discovered \cite{Hoffmann:14a}. It thus remains an
 unresolved question to what extent the current maps of lncRNAs are complete
 both in terms of the number of expressed loci/gene and in terms of the
@@ -113,8 +112,7 @@ transcript portfolio of a particular cell type has been mapped completely.
 Conversely, one asks in this context to what extent reported transcripts
 are noise. To address these issues we investigate here a very large set of
 transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
-of independently generated transcriptome data set we can study in detail if
-and the set of detectable splice junctions converges to a consensus.
+of independently generated transcriptome dataset we can study in detail, if the set of detectable splice junctions converges to a consensus.
 
 \begin{figure}[t]
 \begin{center}
@@ -142,20 +140,20 @@ lymphoma data.
 Fig.~\ref{fig:saturation} summarize the effect of increasing coverage on
 the estimated average number of introns per gene locus. Here, only the
 subset of expressed lncRNAs with at least one annotated intron is used to
-reduce the chance of erroneously or ambigously mapped reads. The data
-qualitatively reproduce that observation of the ENCODE project that there
+reduce the chance of erroneously or ambiguously mapped reads. The data
+qualitatively reproduce that observation of the ENCODE project, that there
 is a large difference in the average number of splice junctions between
 protein-coding loci and ncRNAs \cite{Derrien:12}. Although restricted to a
 quite narrowly defined cancer type, the average number of introns in
 lncRNAs is larger by about one that the GENCODE data set, which uses a
 composite of a broad range of cell lines and tissues. This clearly is an
-effect of the exteme sequencing depth of combined lymphome data. 
+effect of the extreme sequencing depth of combined lymphome data. 
 
-The curves also show that data saturate very slowly, requiring dozens or
-even a hundred samples to reach the plateau value. The data shows that the
-detected splice junctions are unlikely to be noise: nearly all junctions
-seen in at least one sample are reproduced also in 5, and most of them can
-be seen in 10 samples, attesting their physical reality. 
+The curves also show that the data saturate very slowly, requiring dozens
+or even a hundred samples to reach the plateau value. The data show that
+the detected splice junctions are unlikely to be noise: nearly all
+junctions seen in at least one sample are reproduced also in 5, and most of
+them can be seen in 10 samples, attesting their physical reality.
 
 In Fig.~\ref{fig:compare} we compare the data in more detail with the
 GENCODE v.19 annotation. For the case of protein-coding loci we tend to
@@ -166,7 +164,7 @@ expressed; after all, the GENCODE annotation is a composite of vastly
 diverse cell types and tissues. It is interesting to note, however, that we
 systematically observe more introns at moderate RPKM values even from the
 very narrowly defined cell types used here. This attests that large numbers
-of well-defined but rare isoforms so far have eluded annotation.
+of well defined but rare isoforms so far have eluded annotation.
 
 \begin{figure}[t]
   \begin{center}
@@ -183,7 +181,7 @@ of well-defined but rare isoforms so far have eluded annotation.
     systematically predict more (rare) splice variants. For mRNAs that are
     very lowly expressed in the lymphoma data set, GENCODE v.19 has more
     complex gene models. In contrast, we systematically see more introns in
-    lncRNAs that annotated by GENCODE.}
+    lncRNAs than annotated by GENCODE.}
   \label{fig:compare}
 \end{figure}
 
@@ -223,14 +221,14 @@ reproduced very accurately. There is very little noise in these data, as
 shown by the near perfect saturation of the average number of splice
 junctions per gene. Transcriptional noise, whether biological or technical,
 would result in a linear increase of the number of detected junctions as
-function of the size of the data set. If such a slope exists it is too
+function of the size of the data set. If such a slope exists, it is too
 small to be detectable from our data, which comprise more than $10^{10}$
 reads. We therefore have to conclude that the human transcriptome is
 confined to very well defined set of splice variants. As a consequence it
-is a meaningful, and in our view worth-while task to attempt the
+is a meaningful, and in our view a worthwhile task to attempt the
 construction of an exhaustive atlas.
 
-The well-definedness of isoforms by itself does not imply that all isoforms
+The well definedness of isoforms by itself does not imply that all isoforms
 carry biological functions. If the vast majority of isoforms are indeed
 non-functional junk, however, an explanation is needed for the precision of
 the processing and its restriction of very few splice sites.
@@ -245,12 +243,12 @@ the splicing-aware mapping tool \textit{segemehl}, version $0.1.7$
 number of reads were around 120 million per sample. The read length was 101
 and around 90\% of the reads were mappable.
 
-Then read support for all identified splice junctions, i.e., genomic
+The read supports for all identified splice junctions, i.e., genomic
 intervals spanning exon-exon boundaries, were calculated. Since
 \textit{segemehl} identifies split-reads independently of any annotation,
 we consider all splice junctions located within genomic coordinates taken
 from GENCODE version 19 as potential introns belonging to that GENCODE
-gene. In order to call an intron, we require at minimum of $1$, $5$, or
+gene. In order to call it an intron, we require at minimum of $1$, $5$, or
 $10$ reads representing the junction.  This procedure was performed using
 the complete range of all dataset sizes from one sample to all 111 samples.
 Normalized mean expression values, quantified as RPKM (reads per kilobase
