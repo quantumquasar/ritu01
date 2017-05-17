@@ -112,15 +112,14 @@ transcript portfolio of a particular cell type has been mapped completely.
 Conversely, one asks in this context to what extent reported transcripts
 are noise. To address these issues we investigate here a very large set of
 transcriptome data from B cell lymphomas. By virtue of aggregating hundreds
-of independently generated transcriptome dataset we can study in detail, if the set of detectable splice junctions converges to a consensus.
+of independently generated transcriptome datasets we can study in detail, if the set of detectable splice junctions converges to a consensus.
 
 \begin{figure}[t]
 \begin{center}
   \includegraphics[width=0.8\textwidth]{saturation}
 \end{center}
 \caption{Saturation curves for the number introns as a function of the 
-  number of independent transcriptome samples. The lncRNAs data refer to 
-  annotated 1,441 genes in the lymphome data set with a least one intron. 
+  number of independent transcriptome samples. The lncRNAs data refer to 1,441 annotated  genes in the lymphome data set with at least one intron. 
   }
   \label{fig:saturation} 
 \end{figure}
@@ -150,10 +149,10 @@ composite of a broad range of cell lines and tissues. This clearly is an
 effect of the extreme sequencing depth of combined lymphome data. 
 
 The curves also show that the data saturate very slowly, requiring dozens
-or even a hundred samples to reach the plateau value. The data show that
-the detected splice junctions are unlikely to be noise: nearly all
-junctions seen in at least one sample are reproduced also in 5, and most of
-them can be seen in 10 samples, attesting their physical reality.
+or even a hundred samples to reach the plateau value. 
+
+The data show that the detected splice junctions are unlikely to be noise since the curves saturate well for all three minimum read support thresholds instead of showing linear growth, attesting their physical reality.
+%The data show that the detected splice junctions are unlikely to be noise: nearly all junctions seen in at least one sample are reproduced also in 5, and most of them can be seen in 10 samples, attesting their physical reality.
 
 In Fig.~\ref{fig:compare} we compare the data in more detail with the
 GENCODE v.19 annotation. For the case of protein-coding loci we tend to
@@ -173,8 +172,8 @@ of well defined but rare isoforms so far have eluded annotation.
   \caption{Scatterplots for different number of expression bins for
     lincRNAs and coding genes.  The diagonal, where $x=y$ is marked by a
     line. Points above the line are those genes for that we calculate more
-    introns compared to GENCODE v.19.  The right-most column shows the
-    fraction of genes for which show more (red), the same (blue), or fewer
+    introns compared to GENCODE v.19.  The right-most column displays the
+    fraction of genes that show more (red), the same (blue), or fewer
     (green) distinct splice junctions in the lymphoma data compared to
     GENCODE v.19.  For the coding genes there is clear dependence of these
     fractions on the expression level: for highly expressed mRNAs, we
@@ -223,8 +222,8 @@ junctions per gene. Transcriptional noise, whether biological or technical,
 would result in a linear increase of the number of detected junctions as
 function of the size of the data set. If such a slope exists, it is too
 small to be detectable from our data, which comprise of more than $10^{10}$
-reads. We, therefore, have to conclude that the human transcriptome is
-confined to very well defined set of splice variants. As a consequence it
+reads. We, therefore, have to conclude that the current annotation of the human transcriptome is
+confined to a very well defined set of splice variants. As a consequence it
 is a meaningful and, in our view, a worthwhile task to attempt the
 construction of an exhaustive atlas.
 
@@ -240,7 +239,7 @@ The 111 RNA-seq lymphoma samples from the ICGC MMML-Seq project
 the splicing-aware mapping tool \textit{segemehl}, version $0.1.7$
 \cite{Hoffmann:09a,Hoffmann:14a} with split-read mapping (option
 \texttt{-S}) enabled in addition to the default parameters. The total
-number of reads were around 120 million per sample. The read length was 101
+number of reads were around 120 million per sample. The read length was 101 nucleotides
 and around 90\% of the reads were mappable.
 
 The read supports for all identified splice junctions, i.e., genomic
@@ -253,9 +252,10 @@ $10$ reads representing the junction.  This procedure was performed using
 the complete range of all dataset sizes from one sample to all 111 samples.
 Normalized mean expression values, quantified as RPKM (reads per kilobase
 and million reads) were averaged over all 111 samples and used to define a
-gene's expression level in the lymphoma data set in Fig.\
-\ref{fig:compare}. We only considered genes that were supported by at
-least 10 reads in our analysis.
+gene's expression level in the lymphoma data set in Fig.\ \ref{fig:compare}. 
+%We only considered genes with at least one intron supported by at least 10 reads in our analysis.
+
+We utilized the UCSC genome browser \cite{Kent:02} to visualize additional introns displayed in Fig.\ \ref{fig:examples}.
 
 \begin{table}[ht]
   \caption{lncRNA genes catalogued by various annotation systems. The
@@ -309,8 +309,8 @@ genes as reference. The intersection of GENCODE v.19 with the loci that are
 supported by at least 10 reads in the lymphoma data set comprises of 5,257
 lincRNAs.
 
-An inhouse pipeline was used to handle the mapped data, aggregate the
-multiple transcriptomes, and compute the summary statistics of
+An inhouse pipeline was used to aggregate the
+multiple transcriptomes and compute the summary statistics of
 interest. Input datasets are provided in the standard GTF format and
 report, for each gene, its exact location as well as its set of constituent
 transcripts. Within a gene, transcripts typically overlap and share exons.
@@ -330,8 +330,7 @@ is far from complete and includes only the most stringently curated
 lncRNAs. In contrast, the NONCODE database is very inclusive and provides
 more than an order of magnitude of more entries. An interesting trend in the
 GENCODE annotation is that the number of exons per lncRNAs has been
-decreasing slightly over time (Tab.~\ref{tab:consortia}).  We used the UCSC
-genome browser \cite{Kent:02} to visualize additional introns.
+decreasing slightly over time (Tab.~\ref{tab:consortia}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
